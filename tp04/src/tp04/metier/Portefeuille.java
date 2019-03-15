@@ -5,6 +5,7 @@
  */
 package tp04.metier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,4 +78,11 @@ public class Portefeuille {
         }
         return total;
     }
-}
+    public ArrayList<Action> consultAct(){
+        ArrayList<Action> list= new ArrayList<>();
+        for(Action act:list){
+           return a
+         
+        }
+     }
+   }
