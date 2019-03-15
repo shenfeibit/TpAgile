@@ -5,10 +5,12 @@
  */
 package tp04.exec;
 
+import java.util.HashMap;
 import tp04.metier.Action;
 import tp04.metier.ActionComposee;
 import tp04.metier.ActionSimple;
 import tp04.metier.Jour;
+import tp04.metier.Marche;
 import tp04.metier.Portefeuille;
 
 public class Run {
@@ -29,7 +31,7 @@ public class Run {
         // enrg de la composition de l'action composée
         bqAss.enrgComposition(axa, 0.3f);
         bqAss.enrgComposition(bnp, 0.7f);
-        // enrg. de 2 cours pour chaque action 
+        // enrg. de 2 cours pour chaque action
         axa.enrgCours(j1, 200);
         axa.enrgCours(j2, 250);
         bnp.enrgCours(j1, 100);
@@ -38,8 +40,10 @@ public class Run {
         System.out.println("Action simple *bnp* à j1 : " + bnp.valeur(j1));
         System.out.println("Action *Banque-Assurance* à j2 : " + bqAss.valeur(j2));
 
+        Marche m = new Marche("Marche Banque Assurance France");
         Portefeuille p;
-        p = new Portefeuille();
+        p = new Portefeuille("p1");
+        m.addPortefeuille(p);
         p.acheter(axa, 10);
         System.out.println("Portefeuille : " + p);
         p.acheter(bnp, 20);
@@ -57,10 +61,22 @@ public class Run {
         System.out.println("Portefeuille : " + p);
         p.vendre(bnp, 50);
         System.out.println("Portefeuille : " + p);
-        
+
+        Portefeuille p2 = new Portefeuille("p2");
+        m.addPortefeuille(p2);
+        p2.acheter(axa, 10);
+        p.acheter(bqAss, 70);
+
+        HashMap<Portefeuille, Float> mapM = m.consulterPortefeuilles(j1);
+        for(Portefeuille por : mapM.keySet()){
+            System.out.println("portfeuille: "+por.getLibelleP()+" valeur : "+mapM.get(por));
+        }
+
+
+
         //consulter portefeuille des actions ainsi que leur valeurs:
         System.out.println("les actions du portefeuille et leurs valeurs:"+p.consultAct(j1));
- 
+
     }
 
 }

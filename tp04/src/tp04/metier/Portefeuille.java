@@ -14,6 +14,7 @@ import java.util.Map;
  * @author perussel
  */
 public class Portefeuille {
+    private final String libelleP;
     /**
      * This is the hashmap where we stock the "actions" and thier vlaues.
      */
@@ -21,9 +22,15 @@ public class Portefeuille {
     /**
      * This is the constructor of class "portefeuille".
      */
-    public Portefeuille() {
+    public Portefeuille(final String libelle) {
+        this.libelleP=libelle;
         this.mapLignes = new HashMap();
     }
+
+    public String getLibelleP() {
+        return libelleP;
+    }
+    
     /**
      * This method provide the possibility for clients to buy the shares.
      *
@@ -75,15 +82,15 @@ public class Portefeuille {
         return total;
     }
     public HashMap<Action,Float> consultAct(Jour j){
-        
+
          HashMap<Action,Float> hash= new HashMap<>();
         for(Action act:this.mapLignes.keySet()){
             hash.put(act,act.valeur(j));
-          
+
         }
           return hash;
     }
-        
-        
+
+
 }
 

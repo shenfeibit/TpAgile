@@ -64,6 +64,15 @@ public class Marche {
         this.listP = list;
     }
     /**
+     * This method provide possibility to add "portefeuille" in the market.
+     *
+     * @param p : the "portefeuille"
+     */
+    public final void addPortefeuille(final Portefeuille p) {
+        this.listP.add(p);
+    }
+
+    /**
      *This method give the possibility to consult values of all "portefeuilles".
      *
      * @param j : the day given
