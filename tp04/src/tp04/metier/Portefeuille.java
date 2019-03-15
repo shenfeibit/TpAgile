@@ -5,6 +5,7 @@
  */
 package tp04.metier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,4 +74,16 @@ public class Portefeuille {
         }
         return total;
     }
+    public HashMap<Action,Float> consultAct(Jour j){
+        
+         HashMap<Action,Float> hash= new HashMap<>();
+        for(Action act:this.mapLignes.keySet()){
+            hash.put(act,act.valeur(j));
+          
+        }
+          return hash;
+    }
+        
+        
 }
+

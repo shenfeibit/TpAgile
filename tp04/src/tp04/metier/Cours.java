@@ -7,26 +7,43 @@
 package tp04.metier;
 
 /**
- *
- * @author perussel
+ *This is the class "cours" provide the value of share related to a day.
+ * @author Fei and Nassiba
  */
 public class Cours {
-        
-        private Jour jour;
-
-        private float valeur;
-
-        public float getValeur() {
+        /**
+         *This is the day given.
+         */
+        private final Jour jour;
+        /**
+         *This is the value of share related to the day.
+         */
+        private final float valeur;
+        /**
+         * This is the getter of the value.
+         *
+         * @return : the value
+         */
+        public final float getValeur() {
             return valeur;
         }
-        
-        public Jour getJour() {
+        /**
+         * This is the getter of the day.
+         *
+         * @return : the day
+         */
+        public final Jour getJour() {
             return jour;
         }
-
-        public Cours(Jour jour, float valeur) {
-            this.jour = jour;
-            this.valeur = valeur;
+        /**
+         * This is the constructor of the "cours".
+         *
+         * @param jou : the jour given
+         * @param val : the value of the share given
+         */
+        public Cours(final Jour jou, final float val) {
+            this.jour = jou;
+            this.valeur = val;
         }
 
     }
