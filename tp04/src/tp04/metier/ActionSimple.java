@@ -39,26 +39,5 @@ public class ActionSimple extends Action {
         else 
             return 0; // definition d'une constante possible
     }
-  
-    // encapsulation de la définition de la classe Cours
-    private class Cours {
-        
-        private Jour jour;
-
-        private float valeur;
-
-        public float getValeur() {
-            return valeur;
-        }
-        
-        public Jour getJour() {
-            return jour;
-        }
-
-        public Cours(Jour jour, float valeur) {
-            this.jour = jour;
-            this.valeur = valeur;
-        }
-
-    }
+    
 }
