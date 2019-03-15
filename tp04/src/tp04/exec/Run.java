@@ -57,6 +57,9 @@ public class Run {
         System.out.println("Portefeuille : " + p);
         p.vendre(bnp, 50);
         System.out.println("Portefeuille : " + p);
+        
+        //consulter portefeuille des actions ainsi que leur valeurs:
+        System.out.println("les actions du portefeuille et leurs valeurs:"+p.consultAct(j1));
  
     }
 
