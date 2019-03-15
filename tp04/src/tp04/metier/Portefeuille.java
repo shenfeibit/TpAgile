@@ -90,6 +90,17 @@ public class Portefeuille {
         }
           return hash;
     }
+    
+     public Map<Action, Map<Jour,Float>> getVariation(){
+        Map<Action, Map<Jour,Float>> map = new HashMap<Action, Map<Jour,Float>>();
+        
+        for (Action a : this.mapLignes.keySet()){
+            map.put(a, a.getVariation());
+            
+        }
+     
+        return map;
+    }
 
 
 }

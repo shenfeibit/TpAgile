@@ -6,6 +6,7 @@
 
 package tp04.metier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,5 +40,22 @@ public class ActionSimple extends Action {
         else 
             return 0; // definition d'une constante possible
     }
+     public HashMap<Jour, Float> getVariation(){
+        HashMap<Jour, Float> listeVariation = new HashMap<Jour, Float>();
+        ArrayList<Jour> listeJour= new ArrayList<Jour>();
+        ArrayList<Cours> listeCours= new ArrayList<Cours>();
+        
+        for (Jour j : this.mapCours.keySet()){
+            listeJour.add(j);
+            listeCours.add(this.mapCours.get(j));
+        }
+        
+        for (int i=1; i<listeCours.size(); i++){
+            float var = listeCours.get(i).getValeur()-listeCours.get(i-1).getValeur();
+            listeVariation.put(listeJour.get(i), var);
+        }
+        
+        return listeVariation;
+    } 
     
 }

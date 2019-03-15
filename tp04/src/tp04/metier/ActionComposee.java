@@ -6,6 +6,7 @@
 
 package tp04.metier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,6 +38,26 @@ public class ActionComposee extends Action {
         
         return valeur;
     }
+    
+    public HashMap<Jour, Float> getVariation(){
+        HashMap<Jour, Float> listeVariation = new HashMap<Jour, Float>();
+        ArrayList<Jour> listeJour= new ArrayList<Jour>();
+        ArrayList<Float> listeCours= new ArrayList<Float>();
+        
+        Map.Entry<ActionSimple, Float> entry = mapPanier.entrySet().iterator().next();
+        ActionSimple key= entry.getKey();
+ 
+        for (Jour j : key.getVariation().keySet()){
+            listeJour.add(j);
+            listeCours.add(this.valeur(j));
+        }
+        
+        for (int i=1; i<listeJour.size(); i++){
+            float var = listeCours.get(i)-listeCours.get(i-1);
+            listeVariation.put(listeJour.get(i), var);
+        }
+        return listeVariation;
+    } 
     
     
 }

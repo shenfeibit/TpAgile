@@ -6,6 +6,7 @@
 
 package tp04.metier;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -30,7 +31,7 @@ public abstract class Action {
     }
 
     public abstract float valeur(Jour j);
-    
+    public abstract HashMap<Jour, Float> getVariation();
     @Override
     public int hashCode() {
         int hash = 3;
