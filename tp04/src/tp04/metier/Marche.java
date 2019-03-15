@@ -9,43 +9,75 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
+ *This class is created to manage all the "portefeuilles" in the market.
  *
- * @author 21511708
+ * @author Fei and Nassiba
  */
 public class Marche {
-    
+    /**
+     * libelleM : the libelle of the market.
+     */
     private String libelleM;
-    private ArrayList<Portefeuille> listP ;
-
-    public Marche(String libelleM) {
-        this.libelleM = libelleM;
-        this.listP = new ArrayList<Portefeuille>();
+    /**
+     * This ArrayList stock all the "portefeuilles".
+     */
+    private ArrayList<Portefeuille> listP;
+    /**
+     * This is the constructor of the class "Marche".
+     *
+     * @param libelle : the libelle created
+     */
+    public Marche(final String libelle) {
+        this.libelleM = libelle;
+        this.listP = new ArrayList<>();
     }
-
-    public String getLibelleM() {
+    /**
+     * This is the getter of the libelle of the market.
+     *
+     * @return the libelle
+     */
+    public final String getLibelleM() {
         return libelleM;
     }
-
-    public void setLibelleM(String libelleM) {
-        this.libelleM = libelleM;
+    /**
+     * This is the setter of the libelle of the market.
+     *
+     * @param libelle : the new libelle created
+     */
+    public final void setLibelleM(final String libelle) {
+        this.libelleM = libelle;
     }
-
-    public ArrayList<Portefeuille> getListP() {
+    /**
+     * This is the getter of the list of "portefeuilles".
+     *
+     * @return the list of "portefeuilles"
+     */
+    public final ArrayList<Portefeuille> getListP() {
         return listP;
     }
-
-    public void setListP(ArrayList<Portefeuille> listP) {
-        this.listP = listP;
+    /**
+     *This is the setter of the list of "portefeuilles".
+     *
+     * @param list : the list modified
+     */
+    public final void setListP(final ArrayList<Portefeuille> list) {
+        this.listP = list;
     }
-    
-    public HashMap<Portefeuille, Float> consulterPortefeuilles(Jour j){
+    /**
+     *This method give the possibility to consult values of all "portefeuilles".
+     *
+     * @param j : the day given
+     * @return the HashMap with all "portfeuilles" and their values
+     */
+    public final HashMap<Portefeuille, Float>
+        consulterPortefeuilles(final Jour j) {
         HashMap<Portefeuille, Float> mapPortefeuille;
-        mapPortefeuille = new HashMap<Portefeuille, Float>();
-        for(Portefeuille por: listP){
+        mapPortefeuille = new HashMap<>();
+        for (Portefeuille por: listP) {
             float val = por.valeur(j);
             mapPortefeuille.put(por, val);
         }
         return mapPortefeuille;
     }
-    
+
 }
