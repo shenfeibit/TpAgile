@@ -73,10 +73,19 @@ public class Run {
         }
 
 
-
+        
         //consulter portefeuille des actions ainsi que leur valeurs:
         System.out.println("les actions du portefeuille et leurs valeurs:"+p.consultAct(j1));
 
+        
+        
+        //tester variation
+        for(Action aa : p.getVariation().keySet()){
+            for(Jour j : p.getVariation().get(aa).keySet()){
+                System.out.println(aa.getLibelle()+"-" + j.getNoJour() + " variation "+ p.getVariation().get(aa).get(j));
+            }
+        }
+        
     }
 
 }
